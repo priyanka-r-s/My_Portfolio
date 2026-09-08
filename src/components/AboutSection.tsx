@@ -11,6 +11,7 @@ import {
   Code2,
   ArrowUp,
   ArrowDown,
+  FileDown,
 } from 'lucide-react';
 import { PortfolioData } from '../types/portfolio';
 
@@ -104,6 +105,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
                 {item.icon && <item.icon className="w-3.5 h-3.5 stroke-[3]" />}
               </a>
             ))}
+            {data.resumeUrl && (
+              <a
+                href={data.resumeUrl}
+                download="Priyanka_Resume.pdf"
+                className="mt-2 flex items-center justify-center gap-2 py-2 px-3 rounded-full bg-[#141517] text-[#F4B41A] hover:bg-black text-[11px] font-black tracking-wider uppercase shadow-xs transition-colors"
+                title="Download Resume (PDF)"
+              >
+                <FileDown className="w-3.5 h-3.5" />
+                <span>Download CV</span>
+              </a>
+            )}
           </div>
         </div>
 

@@ -23,6 +23,7 @@ export function App() {
         parsed.aboutPortrait = initialPortfolioData.aboutPortrait;
         parsed.contactPortrait = initialPortfolioData.contactPortrait;
         parsed.projects = initialPortfolioData.projects;
+        parsed.resumeUrl = initialPortfolioData.resumeUrl;
         return parsed;
       } catch {
         return initialPortfolioData;

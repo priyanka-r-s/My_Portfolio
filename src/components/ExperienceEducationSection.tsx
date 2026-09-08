@@ -7,6 +7,7 @@ import {
   MapPin,
   CheckCircle2,
   Trophy,
+  FileDown,
 } from 'lucide-react';
 import { PortfolioData } from '../types/portfolio';
 
@@ -30,6 +31,18 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
           RESUME & <span className="text-[#F4B41A]">EXPERIENCE</span>
         </h2>
         <div className="w-12 h-1 bg-[#F4B41A] mx-auto mt-2 rounded-full" />
+        {data.resumeUrl && (
+          <div className="mt-4">
+            <a
+              href={data.resumeUrl}
+              download="Priyanka_Resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#141517] text-white hover:bg-[#F4B41A] hover:text-[#141517] text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group"
+            >
+              <FileDown className="w-4 h-4 text-[#F4B41A] group-hover:text-[#141517] group-hover:translate-y-0.5 transition-all" />
+              <span>Download Official Resume (PDF)</span>
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">

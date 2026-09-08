@@ -97,6 +97,19 @@ export const CustomizerDrawer: React.FC<CustomizerDrawerProps> = ({
 
             <div>
               <label className="font-bold text-gray-700 block mb-1 uppercase tracking-wider">
+                Resume PDF File / Link
+              </label>
+              <input
+                type="text"
+                value={data.resumeUrl || ''}
+                onChange={(e) => handleChange('resumeUrl', e.target.value)}
+                placeholder="/Priyanka_Resume.pdf"
+                className="w-full px-3 py-2 rounded-xl bg-white border border-gray-300 text-xs focus:outline-none focus:border-[#F4B41A]"
+              />
+            </div>
+
+            <div>
+              <label className="font-bold text-gray-700 block mb-1 uppercase tracking-wider">
                 Full Name
               </label>
               <input

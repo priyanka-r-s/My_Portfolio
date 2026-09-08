@@ -362,4 +362,5 @@ export const initialPortfolioData: PortfolioData = {
     linkedin: 'https://www.linkedin.com/in/priyanka-rani-sahu',
     email: 'sahuranipriyanka56@gmail.com',
   },
+  resumeUrl: '/Priyanka_Resume.pdf',
 };

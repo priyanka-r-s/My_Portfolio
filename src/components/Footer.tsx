@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, FileDown } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
 
@@ -96,6 +96,18 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
                   Education & Certs
                 </a>
               </li>
+              {data.resumeUrl && (
+                <li>
+                  <a
+                    href={data.resumeUrl}
+                    download="Priyanka_Resume.pdf"
+                    className="text-[#F4B41A] hover:underline font-bold flex items-center gap-1.5 pt-1"
+                  >
+                    <FileDown className="w-3.5 h-3.5" />
+                    <span>Download Resume (PDF)</span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 

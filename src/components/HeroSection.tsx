@@ -8,6 +8,7 @@ import {
   Send,
   ArrowDown,
   ArrowUpRight,
+  FileDown,
 } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
@@ -86,6 +87,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
                 <span>MORE ABOUT ME</span>
                 <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
               </a>
+
+              {data.resumeUrl && (
+                <a
+                  href={data.resumeUrl}
+                  download="Priyanka_Resume.pdf"
+                  className="px-5 py-2.5 sm:py-3 rounded-full bg-[#F4B41A] text-[#141517] text-xs sm:text-sm font-black uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group"
+                  title="Download Resume (PDF)"
+                >
+                  <FileDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                  <span>RESUME</span>
+                </a>
+              )}
 
               <a
                 href={data.socials.github}

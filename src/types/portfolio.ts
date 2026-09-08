@@ -105,4 +105,5 @@ export interface PortfolioData {
     linkedin: string;
     email: string;
   };
+  resumeUrl?: string;
 }
