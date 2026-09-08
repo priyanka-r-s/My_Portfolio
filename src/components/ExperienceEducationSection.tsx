@@ -18,184 +18,186 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
   data,
 }) => {
   return (
-    <section id="experience" className="py-16 sm:py-24 bg-[#FAF7F2]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#7A846A] font-semibold block mb-2">
+    <section id="experience" className="pt-16 pb-6 sm:pt-20 sm:pb-8 lg:pt-20 lg:pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+        <div className="flex items-center justify-center gap-2 mb-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F4B41A]" />
+          <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#F4B41A] font-bold block">
             Career Journey & Foundation
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#1D2217] tracking-tight">
-            Experience &{' '}
-            <span className="italic font-normal text-[#586545]">Education.</span>
-          </h2>
-          <div className="w-12 h-0.5 bg-[#B08E55] mx-auto mt-4 rounded-full" />
         </div>
+        <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-[#141517] tracking-tight uppercase">
+          RESUME & <span className="text-[#F4B41A]">EXPERIENCE</span>
+        </h2>
+        <div className="w-12 h-1 bg-[#F4B41A] mx-auto mt-2 rounded-full" />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Left Column: Work Experience (WEINTERN Internship) */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-2xl bg-[#EBE4D5] border border-[#DDD3BF] flex items-center justify-center text-[#586545]">
-                <Briefcase className="w-5 h-5" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2217]">
-                Internship Experience
-              </h3>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        {/* Left Column: Work Experience (WEINTERN Internship) */}
+        <div className="lg:col-span-6 space-y-4">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="w-9 h-9 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center shadow-xs border border-yellow-300">
+              <Briefcase className="w-4 h-4 stroke-[2.2]" />
             </div>
+            <h3 className="font-display font-black text-lg sm:text-xl text-[#141517] uppercase tracking-wide">
+              Internship Experience
+            </h3>
+          </div>
 
-            {data.experience.map((exp, idx) => (
-              <div
-                key={idx}
-                className="p-7 sm:p-8 rounded-[32px] bg-[#F4EFEA] border border-[#DDD3BF] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden"
-              >
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#545E44] text-[#FAF7F2] text-[10px] font-mono uppercase tracking-wider font-semibold mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D6BA85] animate-pulse" />
-                  <span>{exp.mode}</span>
-                </div>
-
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#1D2217]">
-                  {exp.role}
-                </h4>
-                <p className="text-sm font-semibold text-[#586545] mt-0.5">
-                  {exp.company}
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4 text-xs text-[#7A846A] mt-2 mb-6">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-[#B08E55]" />
-                    {exp.period}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#B08E55]" />
-                    {exp.location}
-                  </span>
-                </div>
-
-                <div className="space-y-2.5 mb-6">
-                  {exp.highlights.map((item, hIdx) => (
-                    <div key={hIdx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#586545] flex-shrink-0 mt-0.5" />
-                      <p className="text-xs sm:text-sm text-[#465037] leading-relaxed">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-4 border-t border-[#E5DEC9] flex flex-wrap gap-1.5">
-                  {exp.technologies.map((tech, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-2.5 py-1 rounded-full bg-[#EBE4D5] text-[#465037] font-mono text-[10px] font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            {/* Honors & Recognition */}
-            <div className="p-6 rounded-[28px] bg-[#545E44] text-[#FAF7F2] shadow-md border border-[#6B7A54]">
-              <div className="flex items-center gap-3 mb-4">
-                <Trophy className="w-5 h-5 text-[#D6BA85]" />
-                <h4 className="font-serif text-lg font-bold text-[#FAF7F2]">
-                  Honors & Recognition
-                </h4>
+          {data.experience.map((exp, idx) => (
+            <div
+              key={idx}
+              className="p-5 sm:p-6 rounded-[24px] bg-white border border-gray-200/90 shadow-md hover:shadow-lg transition-shadow relative overflow-hidden"
+            >
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#F4B41A] text-[#141517] text-[9px] font-mono uppercase tracking-wider font-black mb-2 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#141517] animate-pulse" />
+                <span>{exp.mode}</span>
               </div>
 
-              <div className="space-y-3.5">
-                {data.achievements.map((ach, aIdx) => (
-                  <div key={aIdx} className="border-l-2 border-[#D6BA85] pl-3 py-0.5">
-                    <h5 className="font-serif text-sm font-bold text-[#FAF7F2]">
-                      {ach.title}
-                    </h5>
-                    <p className="text-xs text-[#CBD2BE] mt-0.5 leading-relaxed font-light">
-                      {ach.description}
+              <h4 className="font-display font-black text-lg text-[#141517]">
+                {exp.role}
+              </h4>
+              <p className="text-xs font-bold text-gray-700 mt-0.5">
+                {exp.company}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3 text-[11px] text-gray-500 mt-1 mb-3.5 font-medium">
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3 text-[#F4B41A]" />
+                  {exp.period}
+                </span>
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3 h-3 text-[#F4B41A]" />
+                  {exp.location}
+                </span>
+              </div>
+
+              <div className="space-y-1.5 mb-3.5">
+                {exp.highlights.map((item, hIdx) => (
+                  <div key={hIdx} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#F4B41A] flex-shrink-0 mt-0.5" />
+                    <p className="text-xs text-gray-600 leading-relaxed font-normal">
+                      {item}
                     </p>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
 
-          {/* Right Column: Education & Certifications */}
-          <div id="education" className="lg:col-span-6 space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-2xl bg-[#EBE4D5] border border-[#DDD3BF] flex items-center justify-center text-[#586545]">
-                <GraduationCap className="w-5 h-5" />
+              <div className="pt-3 border-t border-gray-100 flex flex-wrap gap-1">
+                {exp.technologies.map((tech, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="px-2 py-0.5 rounded-full bg-[#F3F4F6] text-[#141517] font-mono text-[9px] font-bold border border-gray-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-              <h3 className="font-serif text-2xl font-bold text-[#1D2217]">
-                Education
-              </h3>
+            </div>
+          ))}
+
+          {/* Honors & Recognition */}
+          <div className="p-5 rounded-[24px] bg-[#141517] text-white shadow-lg border border-gray-800">
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-8 h-8 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center">
+                <Trophy className="w-3.5 h-3.5 stroke-[2.5]" />
+              </div>
+              <h4 className="font-display font-black text-sm sm:text-base text-white uppercase tracking-wider">
+                Honors & Recognition
+              </h4>
             </div>
 
-            <div className="space-y-4">
-              {data.education.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-[28px] bg-[#F4EFEA] border border-[#DDD3BF] flex flex-col sm:flex-row sm:items-start justify-between gap-4"
-                >
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#7A846A]">
-                      {edu.period}
-                    </span>
-                    <h4 className="font-serif text-lg font-bold text-[#1D2217] mt-0.5">
-                      {edu.degree}
-                    </h4>
-                    <p className="text-xs sm:text-sm font-medium text-[#586545]">
-                      {edu.institution}
-                    </p>
-                    {edu.university && (
-                      <p className="text-xs text-[#7A846A] mt-0.5">{edu.university}</p>
-                    )}
-                    {edu.details && (
-                      <p className="text-xs text-[#5A6350] mt-2 leading-relaxed font-light">
-                        {edu.details}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="flex-shrink-0 self-start sm:self-auto bg-[#FAF7F2] border border-[#DDD3BF] px-4 py-2 rounded-2xl text-center shadow-xs">
-                    <span className="font-serif text-lg font-bold text-[#1D2217] block leading-none">
-                      {edu.score}
-                    </span>
-                    <span className="text-[9px] font-mono uppercase tracking-wider text-[#586545] font-semibold">
-                      {edu.scoreLabel}
-                    </span>
-                  </div>
+            <div className="space-y-2.5">
+              {data.achievements.map((ach, achIdx) => (
+                <div key={achIdx} className="border-l-2 border-[#F4B41A] pl-3 py-0.5">
+                  <h5 className="font-display font-bold text-xs text-white">
+                    {ach.title}
+                  </h5>
+                  <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">
+                    {ach.description}
+                  </p>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
 
-            <div className="pt-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Award className="w-4 h-4 text-[#B08E55]" />
-                <h4 className="font-serif text-base font-bold text-[#1D2217]">
-                  Certifications & Technical Training
-                </h4>
+        {/* Right Column: Education & Certifications */}
+        <div id="education" className="lg:col-span-6 space-y-4">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="w-9 h-9 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center shadow-xs border border-yellow-300">
+              <GraduationCap className="w-4 h-4 stroke-[2.2]" />
+            </div>
+            <h3 className="font-display font-black text-lg sm:text-xl text-[#141517] uppercase tracking-wide">
+              Education
+            </h3>
+          </div>
+
+          <div className="space-y-3">
+            {data.education.map((edu, idx) => (
+              <div
+                key={idx}
+                className="p-4 sm:p-5 rounded-[24px] bg-white border border-gray-200/90 shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3"
+              >
+                <div>
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-[#F4B41A] font-bold">
+                    {edu.period}
+                  </span>
+                  <h4 className="font-display font-black text-base text-[#141517] mt-0.5">
+                    {edu.degree}
+                  </h4>
+                  <p className="text-xs font-bold text-gray-700">
+                    {edu.institution}
+                  </p>
+                  {edu.university && (
+                    <p className="text-[11px] text-gray-500 mt-0.5">{edu.university}</p>
+                  )}
+                  {edu.details && (
+                    <p className="text-[11px] text-gray-600 mt-1 leading-snug font-normal">
+                      {edu.details}
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex-shrink-0 self-start sm:self-auto bg-[#141517] text-white px-4 py-2 rounded-2xl text-center shadow-sm border border-gray-800">
+                  <span className="font-display font-black text-lg text-[#F4B41A] block leading-none">
+                    {edu.score}
+                  </span>
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-gray-300 font-bold">
+                    {edu.scoreLabel}
+                  </span>
+                </div>
               </div>
+            ))}
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {data.certifications.map((cert, cIdx) => (
-                  <div
-                    key={cIdx}
-                    className="p-4 rounded-2xl bg-[#EBE4D5]/70 border border-[#DDD3BF] flex flex-col justify-between"
-                  >
-                    <div>
-                      <span className="text-[9px] font-mono font-semibold uppercase tracking-wider text-[#586545] block">
-                        {cert.issuer}
-                      </span>
-                      <h5 className="font-serif text-sm font-bold text-[#1D2217] mt-0.5 leading-snug">
-                        {cert.title}
-                      </h5>
-                      <p className="text-[11px] text-[#5A6350] mt-1 line-clamp-2">
-                        {cert.description}
-                      </p>
-                    </div>
+          <div className="pt-2">
+            <div className="flex items-center gap-2 mb-4">
+              <Award className="w-5 h-5 text-[#F4B41A]" />
+              <h4 className="font-display font-black text-base uppercase tracking-wider text-[#141517]">
+                Certifications & Training
+              </h4>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {data.certifications.map((cert, cIdx) => (
+                <div
+                  key={cIdx}
+                  className="p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-[#F4B41A] transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#F4B41A] block">
+                      {cert.issuer}
+                    </span>
+                    <h5 className="font-display font-bold text-sm text-[#141517] mt-0.5 leading-snug">
+                      {cert.title}
+                    </h5>
+                    <p className="text-[11px] text-gray-600 mt-1 line-clamp-2">
+                      {cert.description}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

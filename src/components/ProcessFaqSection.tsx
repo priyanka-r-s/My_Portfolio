@@ -67,22 +67,22 @@ export const ProcessFaqSection: React.FC<ProcessFaqSectionProps> = ({ data }) =>
   };
 
   return (
-    <section id="process" className="py-16 sm:py-24 bg-[#F4EFEA]/50 border-t border-[#EBE4D5]">
+    <section id="process" className="py-16 sm:py-24 bg-[#F3F4F6] border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Methodology */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#7A846A] font-semibold block mb-2">
-                Analytical Framework
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#1D2217] tracking-tight leading-tight mb-4">
-                A Structured Approach to{' '}
-                <span className="italic font-normal text-[#586545]">
-                  Data Intelligence.
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#F4B41A]" />
+                <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#F4B41A] font-bold block">
+                  Analytical Framework
                 </span>
+              </div>
+              <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141517] tracking-tight uppercase leading-tight mb-4">
+                STRUCTURED <span className="text-[#F4B41A]">DATA WORKFLOW</span>
               </h2>
-              <p className="text-xs sm:text-sm text-[#5A6350] leading-relaxed mb-8 max-w-lg">
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-8 max-w-lg">
                 Extracting reliable business value from raw data requires a methodical,
                 reproducible analytical workflow from ingestion to deployment.
               </p>
@@ -92,31 +92,31 @@ export const ProcessFaqSection: React.FC<ProcessFaqSectionProps> = ({ data }) =>
               {processSteps.map((step, idx) => (
                 <div
                   key={step.number}
-                  className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] shadow-xs hover:border-[#B08E55] transition-colors"
+                  className="flex flex-col items-center text-center p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:border-[#F4B41A] transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#EBE4D5] flex items-center justify-center mb-3 shadow-inner">
+                  <div className="w-10 h-10 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center mb-3 shadow-xs">
                     {getStepIcon(idx)}
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-[#B08E55] tracking-widest uppercase">
+                  <span className="text-[10px] font-mono font-black text-[#F4B41A] tracking-widest uppercase">
                     {step.number}
                   </span>
-                  <h4 className="font-serif text-sm font-bold text-[#1D2217] mt-0.5 mb-1 leading-snug">
+                  <h4 className="font-display font-black text-xs text-[#141517] mt-1 mb-0.5 leading-snug uppercase">
                     {step.title}
                   </h4>
-                  <p className="text-[10px] text-[#7A846A] font-medium leading-tight">
+                  <p className="text-[10px] text-gray-500 font-medium leading-tight">
                     {step.subtitle}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 p-4 rounded-2xl bg-[#EBE4D5]/60 border border-[#DDD3BF] flex items-center justify-between">
-              <span className="text-xs text-[#465037] font-medium">
+            <div className="mt-8 p-4 rounded-2xl bg-white border border-gray-200 flex items-center justify-between shadow-sm">
+              <span className="text-xs text-gray-700 font-bold">
                 Interested in reviewing a project methodology?
               </span>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1D2217] hover:text-[#586545] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#141517] hover:text-[#F4B41A] transition-colors"
               >
                 <span>Get in Touch</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -126,12 +126,14 @@ export const ProcessFaqSection: React.FC<ProcessFaqSectionProps> = ({ data }) =>
 
           {/* Right Column: FAQ */}
           <div id="faq" className="lg:col-span-6">
-            <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#7A846A] font-semibold block mb-2">
-              Common Inquiries
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#1D2217] tracking-tight leading-tight mb-6">
-              Frequently Asked{' '}
-              <span className="italic font-normal text-[#586545]">Questions.</span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#F4B41A]" />
+              <span className="text-xs font-mono tracking-[0.25em] uppercase text-[#F4B41A] font-bold block">
+                Common Inquiries
+              </span>
+            </div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#141517] tracking-tight uppercase leading-tight mb-6">
+              FREQUENTLY ASKED <span className="text-[#F4B41A]">QUESTIONS</span>
             </h2>
 
             <div className="space-y-3">
@@ -142,8 +144,8 @@ export const ProcessFaqSection: React.FC<ProcessFaqSectionProps> = ({ data }) =>
                     key={faq.id}
                     className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                       isOpen
-                        ? 'bg-[#FAF7F2] border-[#586545] shadow-sm'
-                        : 'bg-[#FAF7F2]/70 border-[#E2D8C5] hover:border-[#CBD2BE]'
+                        ? 'bg-white border-[#F4B41A] shadow-md'
+                        : 'bg-white/80 border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <button
@@ -151,26 +153,26 @@ export const ProcessFaqSection: React.FC<ProcessFaqSectionProps> = ({ data }) =>
                       className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 focus:outline-none"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-serif text-sm sm:text-base font-semibold text-[#1D2217]">
+                      <span className="font-display font-bold text-sm sm:text-base text-[#141517]">
                         {faq.question}
                       </span>
                       <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                        className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                           isOpen
-                            ? 'bg-[#1D2217] text-[#FAF7F2]'
-                            : 'bg-[#EBE4D5] text-[#586545]'
+                            ? 'bg-[#141517] text-[#F4B41A]'
+                            : 'bg-[#F3F4F6] text-gray-700'
                         }`}
                       >
                         {isOpen ? (
-                          <Minus className="w-3 h-3" />
+                          <Minus className="w-3.5 h-3.5" />
                         ) : (
-                          <Plus className="w-3 h-3" />
+                          <Plus className="w-3.5 h-3.5" />
                         )}
                       </div>
                     </button>
 
                     {isOpen && (
-                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#5A6350] leading-relaxed border-t border-[#F0EAE0] animate-in fade-in duration-200">
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 animate-in fade-in duration-200">
                         {faq.answer}
                       </div>
                     )}

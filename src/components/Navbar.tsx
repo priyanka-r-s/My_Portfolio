@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#FAF7F2]/95 backdrop-blur-md shadow-sm py-3 border-b border-[#E8E1D3]'
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-gray-200/90'
           : 'bg-transparent py-5'
       }`}
     >
@@ -43,23 +43,23 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
           {/* Brand Logo */}
           <a href="#home" className="group flex items-center gap-2">
             <div className="flex flex-col">
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-widest text-[#1D2217] group-hover:text-[#586545] transition-colors flex items-center gap-1">
+              <span className="font-display text-xl sm:text-2xl font-black tracking-wider text-[#141517] group-hover:text-[#F4B41A] transition-colors flex items-center gap-1">
                 {data.brandName}
-                <span className="text-xs text-[#B08E55] font-light">✦</span>
+                <span className="text-xs text-[#F4B41A] font-light">✦</span>
               </span>
-              <span className="text-[10px] tracking-[0.25em] text-[#7A846A] uppercase font-medium -mt-1 font-mono">
+              <span className="text-[10px] tracking-[0.25em] text-[#F4B41A] uppercase font-bold -mt-0.5 font-mono">
                 {data.brandSub}
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#465037]">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-bold text-gray-700">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-[#1D2217] transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#586545] hover:after:w-full after:transition-all after:duration-300"
+                className="hover:text-[#F4B41A] transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#F4B41A] hover:after:w-full after:transition-all after:duration-300 uppercase text-xs tracking-wider font-display"
               >
                 {link.label}
               </a>
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
               href={data.socials.github}
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-full bg-[#EFE9DD] hover:bg-[#E4DAC7] text-[#465037] border border-[#DCD2C0] transition-colors"
+              className="p-2.5 rounded-full bg-[#F3F4F6] hover:bg-[#F4B41A] hover:text-[#141517] text-gray-700 border border-gray-300 transition-colors"
               title="GitHub Profile (19+ Repos)"
             >
               <GithubIcon className="w-4 h-4" />
@@ -81,21 +81,21 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
             {onOpenCustomizer && (
               <button
                 onClick={onOpenCustomizer}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium rounded-full bg-[#EFE9DD] hover:bg-[#E4DAC7] text-[#465037] transition-all border border-[#DCD2C0]"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-full bg-[#F3F4F6] hover:bg-[#F4B41A] hover:text-[#141517] text-gray-800 transition-all border border-gray-300"
                 title="Edit portfolio details live"
               >
-                <Sliders className="w-3.5 h-3.5 text-[#6B7A54]" />
+                <Sliders className="w-3.5 h-3.5 text-[#F4B41A]" />
                 <span className="hidden lg:inline">Edit Info</span>
               </button>
             )}
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1D2217] text-[#FAF7F2] text-xs sm:text-sm font-medium hover:bg-[#383F2C] transition-all duration-300 shadow-sm hover:shadow group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#141517] text-white text-xs sm:text-sm font-black uppercase tracking-wider hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 shadow-md hover:shadow-lg group"
             >
               <span>Get in Touch</span>
-              <span className="w-5 h-5 rounded-full bg-[#FAF7F2]/15 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                <ArrowUpRight className="w-3 h-3 text-[#FAF7F2]" />
+              <span className="w-5 h-5 rounded-full bg-white/20 group-hover:bg-[#141517]/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+                <ArrowUpRight className="w-3 h-3 text-white group-hover:text-[#141517]" />
               </span>
             </a>
           </div>
@@ -105,15 +105,15 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
             {onOpenCustomizer && (
               <button
                 onClick={onOpenCustomizer}
-                className="p-2 rounded-full bg-[#EFE9DD] text-[#465037]"
+                className="p-2 rounded-full bg-[#F3F4F6] text-gray-800"
                 aria-label="Customize"
               >
-                <Sliders className="w-4 h-4" />
+                <Sliders className="w-4 h-4 text-[#F4B41A]" />
               </button>
             )}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full bg-[#FAF7F2] border border-[#E8E1D3] text-[#1D2217] focus:outline-none"
+              className="p-2 rounded-full bg-white border border-gray-300 text-[#141517] focus:outline-none shadow-sm"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -124,14 +124,14 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-[#FAF7F2] border-b border-[#E8E1D3] px-6 py-6 space-y-4 shadow-lg animate-in slide-in-from-top duration-300">
+        <div className="sm:hidden bg-white border-b border-gray-200 px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top duration-300">
           <nav className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-serif text-[#2A3022] hover:text-[#586545] py-1 border-b border-[#F0EAE0]"
+                className="text-sm font-bold uppercase tracking-wider text-[#141517] hover:text-[#F4B41A] py-1.5 border-b border-gray-100 font-display"
               >
                 {link.label}
               </a>
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
               href={data.socials.github}
               target="_blank"
               rel="noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#EFE9DD] text-[#2A3022] text-sm font-medium border border-[#DCD2C0]"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#F3F4F6] text-[#141517] text-xs font-bold border border-gray-300"
             >
               <GithubIcon className="w-4 h-4" />
               <span>Visit GitHub (19 Repos)</span>
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#1D2217] text-[#FAF7F2] text-sm font-medium"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#141517] text-white text-xs font-black uppercase tracking-wider"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-4 h-4" />

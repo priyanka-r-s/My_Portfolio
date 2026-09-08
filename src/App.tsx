@@ -18,7 +18,12 @@ export function App() {
     const saved = localStorage.getItem('portfolio_priyanka_data');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        parsed.heroPortrait = initialPortfolioData.heroPortrait;
+        parsed.aboutPortrait = initialPortfolioData.aboutPortrait;
+        parsed.contactPortrait = initialPortfolioData.contactPortrait;
+        parsed.projects = initialPortfolioData.projects;
+        return parsed;
       } catch {
         return initialPortfolioData;
       }
@@ -39,7 +44,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#22241F] font-sans selection:bg-[#CBD2BE] selection:text-[#1D2217]">
+    <div className="min-h-screen flex flex-col bg-[#F3F4F6] text-[#141517] font-sans selection:bg-[#F4B41A] selection:text-[#141517]">
       <Navbar
         data={data}
         onOpenCustomizer={() => setIsCustomizerOpen(true)}

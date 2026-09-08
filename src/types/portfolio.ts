@@ -82,6 +82,7 @@ export interface PortfolioData {
   heroBadgeQuote: string;
   stats: StatItem[];
   aboutPortrait: string;
+  contactPortrait?: string;
   aboutTitle: string;
   aboutSubtitle: string;
   aboutBio: string[];

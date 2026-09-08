@@ -1,5 +1,14 @@
 import React from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
+import {
+  Home,
+  User,
+  Briefcase,
+  FolderGit2,
+  Award,
+  Send,
+  ArrowDown,
+  ArrowUpRight,
+} from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
 
@@ -8,68 +17,96 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
-  return (
-    <section id="home" className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-      {/* Ambient warm gradient glow */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#EBE4D5]/40 rounded-full blur-3xl pointer-events-none -z-10" />
+  // Navigation nodes mapped mathematically along the 225px radius golden arc (viewBox 0 0 540 540)
+  // Arc center: (235, 270), R = 225, with θ from -62.5° to +62.5° in 25° increments
+  const orbitalNodes = [
+    { icon: Home, label: 'Home', href: '#home', left: '62.8%', top: '13.0%' },
+    { icon: User, label: 'About Me', href: '#about', left: '76.6%', top: '24.6%' },
+    { icon: Briefcase, label: 'Resume', href: '#experience', left: '84.2%', top: '41.0%' },
+    { icon: FolderGit2, label: 'Portfolio', href: '#projects', left: '84.2%', top: '59.0%' },
+    { icon: Award, label: 'Skills & Honors', href: '#skills', left: '76.6%', top: '75.4%' },
+    { icon: Send, label: 'Contact', href: '#contact', left: '62.8%', top: '87.0%' },
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-[#EFE9DD] border border-[#DDD3BF] text-xs font-medium text-[#586545] tracking-wide mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#6B7A54] animate-pulse" />
-              <span className="font-semibold">{data.roleTagline}</span>
-              <span className="text-[#AAB597]">|</span>
-              <span className="text-[#6B7A54]">{data.availabilityTag}</span>
+  // First name for "I'M PRIYANKA"
+  const firstName = data.creatorName.split(' ')[0].toUpperCase();
+
+  return (
+    <section id="home" className="pt-24 pb-6 sm:pt-26 sm:pb-8 lg:pt-24 lg:pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Master Presentation Card */}
+      <div className="relative bg-white rounded-[32px] sm:rounded-[40px] shadow-2xl border border-gray-200/90 p-7 sm:p-9 lg:p-11 xl:p-12 overflow-hidden">
+        {/* Yellow Side Accent Tabs from Reference Image */}
+        <div className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-3.5 sm:w-4 h-28 sm:h-36 bg-[#F4B41A] rounded-r-2xl shadow-sm pointer-events-none" />
+        <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-3.5 sm:w-4 h-28 sm:h-36 bg-[#F4B41A] rounded-l-2xl shadow-sm pointer-events-none" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          {/* Left Column: Greeting, Headline, Pills, and CTA */}
+          <div className="lg:col-span-6 flex flex-col items-start z-10 sm:pl-2">
+            {/* "HI THERE!" with Golden Yellow Underline */}
+            <div className="flex flex-col mb-2.5">
+              <span className="font-display font-black text-xl sm:text-2xl text-[#F4B41A] tracking-wider uppercase">
+                HI THERE!
+              </span>
+              <div className="w-12 h-1 bg-[#F4B41A] mt-0.5 rounded-full" />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-[#1D2217] leading-[1.08] mb-6">
-              {data.heroHeadingLine1}{' '}
-              <span className="italic font-normal font-serif text-[#586545] block sm:inline">
-                {data.heroHeadingItalic}
+            {/* "I'M SARITA / I'M PRIYANKA" Heading */}
+            <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#141517] tracking-tight leading-none mb-3.5">
+              I'M{' '}
+              <span className="text-[#F4B41A] drop-shadow-sm">
+                {firstName}
               </span>
             </h1>
 
-            {/* Subtitle / Bio */}
-            <p className="text-base sm:text-lg text-[#5A6350] leading-relaxed max-w-xl mb-8 font-light">
+            {/* Stacked Pill Badges */}
+            <div className="flex flex-col gap-2 items-start mb-4">
+              {/* Badge 1: Golden Yellow Pill with Dark Text */}
+              <div className="px-4 py-1.5 rounded-full bg-[#F4B41A] text-[#141517] font-black text-xs sm:text-sm tracking-wider uppercase shadow-xs">
+                {data.roleTagline.toUpperCase()}
+              </div>
+
+              {/* Badge 2: Dark Charcoal Pill with White/Yellow Text */}
+              <div className="px-4 py-1.5 rounded-full bg-[#141517] text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-xs flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F4B41A] animate-pulse" />
+                <span>READY TO HANDLE YOUR NEW PROJECT</span>
+              </div>
+            </div>
+
+            {/* Narrative Overview */}
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-lg mb-4 font-normal">
               {data.heroSubheading}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <a
-                href="#projects"
-                className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#1D2217] text-[#FAF7F2] text-sm font-medium hover:bg-[#383F2C] transition-all duration-300 shadow-md hover:shadow-lg group"
+                href="#about"
+                className="px-6 py-2.5 sm:py-3 rounded-full bg-[#141517] text-white text-xs sm:text-sm font-black uppercase tracking-wider hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group"
               >
-                <span>Explore Featured Projects</span>
-                <span className="w-5 h-5 rounded-full bg-[#FAF7F2]/20 flex items-center justify-center group-hover:translate-y-0.5 transition-transform">
-                  <ArrowDown className="w-3.5 h-3.5 text-[#FAF7F2]" />
-                </span>
+                <span>MORE ABOUT ME</span>
+                <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
               </a>
 
               <a
                 href={data.socials.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#FAF7F2] border border-[#D5C8AF] text-[#2A3022] text-sm font-medium hover:bg-[#EFE9DD] hover:border-[#CBD2BE] transition-all duration-300 group"
+                className="px-5 py-2.5 sm:py-3 rounded-full bg-[#F3F4F6] text-[#141517] text-xs sm:text-sm font-bold hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 border border-gray-300/80 flex items-center gap-2 group"
               >
-                <GithubIcon className="w-4 h-4 text-[#586545]" />
-                <span>GitHub Repositories (19+)</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#7A846A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>GitHub (19+ Repos)</span>
+                <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
 
-            {/* Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-[#DDD3BF]/70">
+            {/* Quick Stats Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3.5 border-t border-gray-200/90 w-full max-w-lg">
               {data.stats.map((stat, idx) => (
                 <div key={idx} className="flex flex-col">
-                  <span className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#1D2217]">
+                  <span className="font-display font-black text-xl sm:text-2xl text-[#141517]">
                     {stat.value}
                   </span>
-                  <span className="text-xs text-[#7A846A] tracking-wide mt-0.5 font-medium">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-gray-500 uppercase tracking-wider mt-0.5">
                     {stat.label}
                   </span>
                 </div>
@@ -77,42 +114,66 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Frame & Floating Badge */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[420px]">
-              {/* Arch Rounded Frame Container */}
-              <div className="relative overflow-hidden rounded-[40px] border-4 border-[#F0E9DD] shadow-2xl bg-[#EBE4D5]">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A3022]/40 via-transparent to-transparent z-10 pointer-events-none" />
+          {/* Right Column: Hero Portrait within the Open Caliper Bracket from Reference */}
+          <div className="lg:col-span-6 relative flex items-center justify-center">
+            <div className="relative w-full max-w-[300px] sm:max-w-[360px] md:max-w-[400px] lg:max-w-[440px] xl:max-w-[470px] aspect-square mx-auto flex items-center justify-center">
+              {/* Golden Yellow Open Caliper Bracket SVG (matches theme reference slide) */}
+              <svg
+                viewBox="0 0 540 540"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute inset-0 w-full h-full pointer-events-none z-10"
+              >
+                {/* Arc path: top horizontal line -> smooth right semicircle -> bottom horizontal line */}
+                <path
+                  d="M 175 45 L 235 45 A 225 225 0 0 1 235 495 L 205 495"
+                  stroke="#F4B41A"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Terminal Dots on Top and Bottom Tails */}
+                <circle cx="175" cy="45" r="5.5" fill="#F4B41A" />
+                <circle cx="205" cy="495" r="5.5" fill="#F4B41A" />
+              </svg>
 
+              {/* Large Central Circular Portrait */}
+              <div
+                style={{
+                  left: '7.41%',
+                  top: '13.89%',
+                  width: '72.22%',
+                  height: '72.22%',
+                }}
+                className="absolute z-10 rounded-full overflow-hidden border-[5px] sm:border-[6px] border-white shadow-2xl bg-gray-100 group"
+              >
                 <img
                   src={data.heroPortrait}
                   alt={data.creatorName}
-                  className="w-full h-[480px] sm:h-[540px] object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="eager"
                 />
               </div>
 
-              {/* Floating Dark Badge Card */}
-              <div className="absolute -bottom-6 -left-4 sm:-left-8 z-20 max-w-[260px] bg-[#1D2217]/95 backdrop-blur-md text-[#FAF7F2] p-4 sm:p-5 rounded-2xl shadow-floating border border-[#383F2C] transform hover:-translate-y-1 transition-transform">
-                <div className="flex items-start gap-2.5">
-                  <div className="p-1.5 rounded-full bg-[#B08E55]/20 text-[#D6BA85] mt-0.5 flex-shrink-0">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <p className="font-serif text-sm font-medium leading-snug text-[#FAF7F2]">
-                      {data.heroBadgeQuote}
-                    </p>
-                    <p className="text-[10px] text-[#AAB597] mt-1 tracking-wider uppercase font-mono">
-                      Data Science & Analytics
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative Star */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#D5C8AF] flex items-center justify-center text-[#B08E55] shadow-sm">
-                <span className="text-xl">✦</span>
-              </div>
+              {/* Interactive Orbital Node Buttons along the Golden Arc */}
+              {orbitalNodes.map((node, idx) => {
+                const IconComponent = node.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={node.href}
+                    title={node.label}
+                    style={{ left: node.left, top: node.top }}
+                    className="absolute z-20 -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full bg-[#141517] border-2 border-white text-[#F4B41A] hover:bg-[#F4B41A] hover:text-[#141517] hover:scale-115 active:scale-95 shadow-xl flex items-center justify-center transition-all duration-300 group"
+                  >
+                    <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-4.5 lg:h-4.5 transition-transform group-hover:scale-110" />
+                    {/* Hover Label Tooltip */}
+                    <span className="absolute right-11 lg:right-13 px-2 py-0.5 bg-[#141517] text-white text-[10px] font-bold rounded shadow-md opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity">
+                      {node.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -120,3 +181,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
     </section>
   );
 };
+

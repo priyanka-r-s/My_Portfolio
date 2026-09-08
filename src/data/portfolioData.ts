@@ -11,7 +11,7 @@ export const initialPortfolioData: PortfolioData = {
   heroSubheading:
     'Data Science Intern & CSE student passionate about Python, SQL, Machine Learning, and Power BI. I uncover hidden patterns, build predictive models, and design interactive dashboards that transform complex data into intelligent business decisions.',
   heroPortrait:
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80',
+    '/priyanka.jpg?v=2',
   heroBadgeQuote: 'Turning complex numbers into strategic business clarity',
   stats: [
     { value: '9.10', label: 'B.Tech CGPA' },
@@ -20,7 +20,9 @@ export const initialPortfolioData: PortfolioData = {
     { value: '500+', label: 'Stocks Modeled (NIFTY)' },
   ],
   aboutPortrait:
-    'https://images.unsplash.com/photo-1580894732484-880c550df686?auto=format&fit=crop&w=800&q=80',
+    '/about-priyanka.jpg',
+  contactPortrait:
+    '/contact-priyanka.png',
   aboutTitle: "I'm Priyanka — uncovering insights that drive growth.",
   aboutSubtitle: 'ABOUT ME',
   aboutBio: [
@@ -96,7 +98,7 @@ export const initialPortfolioData: PortfolioData = {
       metric: '500+',
       metricLabel: 'Equities Modeled',
       image:
-        'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
+        '/projects/nifty500.jpg',
       description:
         'Developed a machine learning-based stock market prediction framework using historical NIFTY 500 financial data to study market volatility and forecast asset trends.',
       challenge:
@@ -117,7 +119,7 @@ export const initialPortfolioData: PortfolioData = {
       metric: '10K+',
       metricLabel: 'Transactions Analyzed',
       image:
-        'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+        '/projects/diwali-sales.jpg',
       description:
         'Comprehensive exploratory data analysis on a large Diwali festival sales dataset to discover customer purchasing patterns and demographic drivers.',
       challenge:
@@ -138,7 +140,7 @@ export const initialPortfolioData: PortfolioData = {
       metric: '3',
       metricLabel: 'Interactive Portals',
       image:
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+        '/projects/weintern-dashboard.jpg',
       description:
         'Working with student-related data to build intuitive analytics dashboards for Students, Mentors, and Administrators for the WEINTERN official platform.',
       challenge:
@@ -159,7 +161,7 @@ export const initialPortfolioData: PortfolioData = {
       metric: 'Smart AI',
       metricLabel: 'Interactive Assistance',
       image:
-        'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+        '/projects/ai-guru.jpg',
       description:
         'An intelligent educational learning companion and automated news summarization utility utilizing NLP concepts and Python-based logic.',
       challenge:
