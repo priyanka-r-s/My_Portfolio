@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Trophy,
   FileDown,
+  ArrowUpRight,
 } from 'lucide-react';
 import { PortfolioData } from '../types/portfolio';
 
@@ -199,9 +200,16 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
                   className="p-4 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-[#F4B41A] transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#F4B41A] block">
-                      {cert.issuer}
-                    </span>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#F4B41A] block">
+                        {cert.issuer}
+                      </span>
+                      {cert.year && (
+                        <span className="text-[9px] font-mono font-bold text-gray-400">
+                          {cert.year}
+                        </span>
+                      )}
+                    </div>
                     <h5 className="font-display font-bold text-sm text-[#141517] mt-0.5 leading-snug">
                       {cert.title}
                     </h5>
@@ -209,6 +217,20 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
                       {cert.description}
                     </p>
                   </div>
+
+                  {cert.credentialUrl && (
+                    <div className="pt-2 mt-2 border-t border-gray-100">
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-wider text-[#141517] hover:text-[#F4B41A] transition-colors"
+                      >
+                        <span>View Certificate</span>
+                        <ArrowUpRight className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

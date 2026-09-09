@@ -82,18 +82,62 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({
 
                 <div className="w-full h-px bg-gray-200 mb-3" />
 
-                <ul className="space-y-1.5 mb-3.5">
-                  {cat.skills.map((skill, sIdx) => (
-                    <li key={sIdx} className="flex items-start gap-2">
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-2 h-2 stroke-[3]" />
-                      </div>
-                      <span className="text-xs text-gray-700 font-medium leading-tight">
-                        {skill}
+                {cat.strongSkills ? (
+                  <div className="space-y-3 mb-3.5">
+                    <div>
+                      <span className="text-[10px] font-mono tracking-wider uppercase font-black text-[#141517] flex items-center gap-1.5 mb-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#F4B41A]" />
+                        Strong / Core
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                      <ul className="space-y-1.5">
+                        {cat.strongSkills.map((skill, sIdx) => (
+                          <li key={sIdx} className="flex items-start gap-2">
+                            <div className="w-3.5 h-3.5 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-2 h-2 stroke-[3]" />
+                            </div>
+                            <span className="text-xs text-gray-800 font-semibold leading-tight">
+                              {skill}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {cat.workingKnowledge && (
+                      <div>
+                        <span className="text-[10px] font-mono tracking-wider uppercase font-bold text-gray-500 flex items-center gap-1.5 mb-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                          Working Knowledge
+                        </span>
+                        <ul className="space-y-1.5">
+                          {cat.workingKnowledge.map((skill, wIdx) => (
+                            <li key={wIdx} className="flex items-start gap-2">
+                              <div className="w-3.5 h-3.5 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span className="text-[9px] font-bold leading-none">·</span>
+                              </div>
+                              <span className="text-xs text-gray-600 font-normal leading-tight">
+                                {skill}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <ul className="space-y-1.5 mb-3.5">
+                    {cat.skills.map((skill, sIdx) => (
+                      <li key={sIdx} className="flex items-start gap-2">
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#F4B41A] text-[#141517] flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-2 h-2 stroke-[3]" />
+                        </div>
+                        <span className="text-xs text-gray-700 font-medium leading-tight">
+                          {skill}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <div className="flex flex-wrap gap-1 mb-3.5">
                   {cat.tools.map((tool, tIdx) => (

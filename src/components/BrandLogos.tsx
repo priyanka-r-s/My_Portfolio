@@ -25,7 +25,7 @@ export const BrandLogos: React.FC<BrandLogosProps> = ({ data: _data }) => {
     },
     {
       name: 'SQL',
-      sub: 'Complex Queries & Aggs',
+      sub: 'MySQL & PostgreSQL',
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
           <ellipse cx="12" cy="5" rx="9" ry="3" fill="#F4B41A" fillOpacity="0.3" stroke="#F4B41A" strokeWidth="2" />
@@ -109,7 +109,7 @@ export const BrandLogos: React.FC<BrandLogosProps> = ({ data: _data }) => {
     },
     {
       name: 'Git & GitHub',
-      sub: '19+ Repositories',
+      sub: '19+ Projects',
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" fill="#181717" />

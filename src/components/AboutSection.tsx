@@ -23,8 +23,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
   const funFacts = [
     { value: '9.10', label: 'B.Tech CGPA' },
     { value: '19+', label: 'Projects & Repos' },
-    { value: '500+', label: 'Stocks Modeled' },
-    { value: '6 Mo', label: 'WEINTERN Intern' },
+    { value: 'NIFTY 500', label: 'Equities Analyzed' },
+    { value: 'Intern', label: 'WEINTERN Pvt Ltd' },
     { value: '90.8%', label: '12th Class Rank' },
     { value: '100%', label: 'Dedicated Delivery' },
   ];

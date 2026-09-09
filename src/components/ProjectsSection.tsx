@@ -109,6 +109,34 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
                 <h4 className="font-display font-bold text-sm sm:text-base text-white mt-1.5 leading-snug line-clamp-2">
                   {project.title}
                 </h4>
+
+                {/* Quick Action Links on Card */}
+                <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-gray-800/80">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-gray-300 hover:text-[#F4B41A] transition-colors py-1 px-2.5 rounded-full bg-white/10 hover:bg-white/20"
+                      title="Open GitHub repository"
+                    >
+                      <GithubIcon className="w-3 h-3" />
+                      <span>Code ↗</span>
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProject(project);
+                    }}
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#141517] bg-[#F4B41A] hover:bg-yellow-400 transition-colors py-1 px-2.5 rounded-full ml-auto shadow-xs"
+                  >
+                    <span>Overview</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -118,7 +146,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
           <div className="flex items-center gap-3 text-xs text-gray-400">
             <Code2 className="w-4 h-4 text-[#F4B41A]" />
             <span>
-              Looking for all 19+ repositories, Jupyter notebooks, and apps?
+              Looking for all 19+ projects, Jupyter notebooks, and analytical applications?
             </span>
           </div>
 
@@ -129,7 +157,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#F4B41A] text-[#141517] text-xs font-black uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 shadow-md group"
           >
             <GithubIcon className="w-4 h-4" />
-            <span>Explore GitHub Repositories</span>
+            <span>Explore All GitHub Projects</span>
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </div>

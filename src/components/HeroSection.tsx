@@ -36,22 +36,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
     <section id="home" className="pt-24 pb-6 sm:pt-26 sm:pb-8 lg:pt-24 lg:pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Master Presentation Card */}
       <div className="relative bg-white rounded-[32px] sm:rounded-[40px] shadow-2xl border border-gray-200/90 p-7 sm:p-9 lg:p-11 xl:p-12 overflow-hidden">
-        {/* Yellow Side Accent Tabs from Reference Image */}
-        <div className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-3.5 sm:w-4 h-28 sm:h-36 bg-[#F4B41A] rounded-r-2xl shadow-sm pointer-events-none" />
-        <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-3.5 sm:w-4 h-28 sm:h-36 bg-[#F4B41A] rounded-l-2xl shadow-sm pointer-events-none" />
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Left Column: Greeting, Headline, Pills, and CTA */}
           <div className="lg:col-span-6 flex flex-col items-start z-10 sm:pl-2">
-            {/* "HI THERE!" with Golden Yellow Underline */}
-            <div className="flex flex-col mb-2.5">
-              <span className="font-display font-black text-xl sm:text-2xl text-[#F4B41A] tracking-wider uppercase">
-                HI THERE!
-              </span>
-              <div className="w-12 h-1 bg-[#F4B41A] mt-0.5 rounded-full" />
-            </div>
-
-            {/* "I'M SARITA / I'M PRIYANKA" Heading */}
+            {/* "I'M PRIYANKA" Heading */}
             <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#141517] tracking-tight leading-none mb-3.5">
               I'M{' '}
               <span className="text-[#F4B41A] drop-shadow-sm">
@@ -59,17 +47,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
               </span>
             </h1>
 
-            {/* Stacked Pill Badges */}
-            <div className="flex flex-col gap-2 items-start mb-4">
-              {/* Badge 1: Golden Yellow Pill with Dark Text */}
+            {/* Role & Availability Badges */}
+            <div className="flex flex-wrap items-center gap-2 mb-4">
               <div className="px-4 py-1.5 rounded-full bg-[#F4B41A] text-[#141517] font-black text-xs sm:text-sm tracking-wider uppercase shadow-xs">
                 {data.roleTagline.toUpperCase()}
               </div>
 
-              {/* Badge 2: Dark Charcoal Pill with White/Yellow Text */}
-              <div className="px-4 py-1.5 rounded-full bg-[#141517] text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-xs flex items-center gap-2">
+              <div className="px-3.5 py-1.5 rounded-full bg-[#141517] text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-xs flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F4B41A] animate-pulse" />
-                <span>READY TO HANDLE YOUR NEW PROJECT</span>
+                <span>Open for Opportunities</span>
               </div>
             </div>
 
@@ -79,10 +65,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 mb-5">
+            <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <a
                 href="#about"
-                className="px-6 py-2.5 sm:py-3 rounded-full bg-[#141517] text-white text-xs sm:text-sm font-black uppercase tracking-wider hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group"
+                className="px-5 py-2.5 sm:py-3 rounded-full bg-[#141517] text-white text-xs sm:text-sm font-black uppercase tracking-wider hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group"
               >
                 <span>MORE ABOUT ME</span>
                 <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
@@ -101,13 +87,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
               )}
 
               <a
+                href={data.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 sm:py-3 rounded-full bg-[#F3F4F6] text-[#141517] text-xs sm:text-sm font-bold hover:bg-[#0077B5] hover:text-white transition-all duration-300 border border-gray-300/80 flex items-center gap-1.5 group"
+                title="LinkedIn Profile"
+              >
+                <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+
+              <a
                 href={data.socials.github}
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 sm:py-3 rounded-full bg-[#F3F4F6] text-[#141517] text-xs sm:text-sm font-bold hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 border border-gray-300/80 flex items-center gap-2 group"
+                className="px-4 py-2.5 sm:py-3 rounded-full bg-[#F3F4F6] text-[#141517] text-xs sm:text-sm font-bold hover:bg-[#F4B41A] hover:text-[#141517] transition-all duration-300 border border-gray-300/80 flex items-center gap-1.5 group"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
-                <span>GitHub (19+ Repos)</span>
+                <span>GitHub</span>
                 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>

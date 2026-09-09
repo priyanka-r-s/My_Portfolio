@@ -10,6 +10,13 @@ export interface SkillCategory {
   iconType: 'analytics' | 'ml' | 'engineering';
   skills: string[];
   tools: string[];
+  strongSkills?: string[];
+  workingKnowledge?: string[];
+}
+
+export interface ProjectMetric {
+  label: string;
+  value: string;
 }
 
 export interface Project {
@@ -22,11 +29,15 @@ export interface Project {
   metricLabel: string;
   image: string;
   description: string;
+  problem?: string;
   challenge?: string;
   solution?: string;
   outcome?: string;
+  techStack?: string[];
+  keyMetrics?: ProjectMetric[];
   tags: string[];
   githubUrl?: string;
+  demoUrl?: string;
 }
 
 export interface ExperienceItem {
@@ -52,8 +63,10 @@ export interface EducationItem {
 export interface CertificationItem {
   title: string;
   issuer: string;
+  year?: string;
   description: string;
   tag: string;
+  credentialUrl?: string;
 }
 
 export interface AchievementItem {

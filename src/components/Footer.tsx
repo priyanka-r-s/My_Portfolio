@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-[#1C1F26] border border-gray-800 flex items-center justify-center text-gray-300 hover:bg-[#F4B41A] hover:text-[#141517] transition-all shadow-sm"
                 aria-label="GitHub"
-                title="GitHub (19+ Repos)"
+                title="GitHub (19+ Projects)"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>

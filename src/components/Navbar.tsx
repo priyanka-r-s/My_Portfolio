@@ -78,6 +78,20 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
               <GithubIcon className="w-4 h-4" />
             </a>
 
+            <a
+              href={data.socials.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2.5 rounded-full bg-[#F3F4F6] hover:bg-[#0077B5] hover:text-white text-gray-700 border border-gray-300 transition-colors"
+              title="LinkedIn Profile"
+            >
+              <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+
             {onOpenCustomizer && (
               <button
                 onClick={onOpenCustomizer}
@@ -157,7 +171,20 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#F3F4F6] text-[#141517] text-xs font-bold border border-gray-300"
             >
               <GithubIcon className="w-4 h-4" />
-              <span>Visit GitHub (19 Repos)</span>
+              <span>Visit GitHub (19+ Projects)</span>
+            </a>
+            <a
+              href={data.socials.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#F3F4F6] text-[#141517] text-xs font-bold border border-gray-300 hover:bg-[#0077B5] hover:text-white transition-colors"
+            >
+              <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <span>Connect on LinkedIn</span>
             </a>
             {data.resumeUrl && (
               <a

@@ -65,15 +65,31 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </p>
           </div>
 
+          {/* Key Quantitative Metrics Grid */}
+          {project.keyMetrics && project.keyMetrics.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-[#141517] text-white">
+              {project.keyMetrics.map((km, idx) => (
+                <div key={idx} className="flex flex-col">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#F4B41A] font-bold">
+                    {km.label}
+                  </span>
+                  <span className="font-display font-black text-lg sm:text-xl text-white mt-0.5">
+                    {km.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.challenge && (
+            {(project.problem || project.challenge) && (
               <div className="p-4 rounded-2xl bg-[#F3F4F6] border border-gray-200">
                 <h5 className="font-display text-sm font-bold text-[#141517] mb-1.5 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#F4B41A]" />
-                  The Problem / Challenge
+                  Problem & Objective
                 </h5>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  {project.challenge}
+                  {project.problem || project.challenge}
                 </p>
               </div>
             )}
@@ -82,7 +98,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <div className="p-4 rounded-2xl bg-[#F3F4F6] border border-gray-200">
                 <h5 className="font-display text-sm font-bold text-[#141517] mb-1.5 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#F4B41A]" />
-                  The Methodology & ML Solution
+                  Methodology & Implementation
                 </h5>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {project.solution}
@@ -101,6 +117,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
                   {project.outcome}
                 </p>
+              </div>
+            </div>
+          )}
+
+          {project.techStack && (
+            <div>
+              <span className="text-[10px] font-mono tracking-wider uppercase text-gray-500 font-bold block mb-1.5">
+                Technology Stack
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {project.techStack.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 rounded-md bg-[#FFF9E6] text-[#B87B07] text-xs font-mono font-bold border border-yellow-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           )}

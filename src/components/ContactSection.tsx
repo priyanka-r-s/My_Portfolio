@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, Mail, Phone, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
 
 interface ContactSectionProps {
@@ -95,6 +96,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 >
                   <Phone className="w-4 h-4 text-[#F4B41A]" />
                   <span>{data.phone}</span>
+                </a>
+                <a
+                  href={data.socials.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2.5 hover:text-[#F4B41A] transition-colors font-medium"
+                >
+                  <svg className="w-4 h-4 text-[#F4B41A] fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                  <span>LinkedIn Profile</span>
+                </a>
+                <a
+                  href={data.socials.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2.5 hover:text-[#F4B41A] transition-colors font-medium"
+                >
+                  <GithubIcon className="w-4 h-4 text-[#F4B41A]" />
+                  <span>GitHub Profile (19+ Projects)</span>
                 </a>
                 <div className="flex items-center gap-2.5 text-gray-400 font-medium">
                   <MapPin className="w-4 h-4 text-[#F4B41A]" />

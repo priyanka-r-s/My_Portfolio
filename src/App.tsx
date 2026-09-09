@@ -15,7 +15,7 @@ import { CustomizerDrawer } from './components/CustomizerDrawer';
 
 export function App() {
   const [data, setData] = useState<PortfolioData>(() => {
-    const saved = localStorage.getItem('portfolio_priyanka_data');
+    const saved = localStorage.getItem('portfolio_priyanka_data_v3');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -37,7 +37,7 @@ export function App() {
 
   const handleUpdateData = (newData: PortfolioData) => {
     setData(newData);
-    localStorage.setItem('portfolio_priyanka_data', JSON.stringify(newData));
+    localStorage.setItem('portfolio_priyanka_data_v3', JSON.stringify(newData));
   };
 
   const handleSelectSkill = (skillCategory: SkillCategory) => {

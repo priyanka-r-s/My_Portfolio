@@ -22,8 +22,8 @@ This portfolio is built with a bespoke **warm editorial luxury** aesthetic:
 
 ## 🚀 Key Sections
 
-- **Hero Section**: High-impact editorial headline, quick stats strip (9.10 CGPA, 19+ Repos, 500+ Stocks Modeled), and CTAs.
-- **About Me**: Narrative bio, 6-month WEINTERN Data Science internship highlights, and core capabilities.
+- **Hero Section**: High-impact editorial headline, quick stats strip (9.10 CGPA, 19+ Projects, NIFTY 500 Equities Analyzed), and CTAs.
+- **About Me**: Narrative bio, WEINTERN Data Science internship highlights, and core capabilities.
 - **Technical Expertise**: 3 categorized domains — *Data Analytics & BI*, *Machine Learning & AI*, and *Tools & Practical Development*.
 - **Featured Projects**:
   - 📈 **NIFTY 500 Stock Market Prediction**: Time series forecasting with ARIMA, LSTM, and XGBoost.
