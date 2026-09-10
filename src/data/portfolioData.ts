@@ -20,9 +20,9 @@ export const initialPortfolioData: PortfolioData = {
     { value: 'NIFTY 500', label: 'Equities Analyzed' },
   ],
   aboutPortrait:
-    '/about-priyanka.jpg',
+    '/about-priyanka.png?v=2',
   contactPortrait:
-    '/contact-priyanka.png',
+    '/contact-priyanka.jpg?v=2',
   aboutTitle: "I'm Priyanka — uncovering insights that drive growth.",
   aboutSubtitle: 'ABOUT ME',
   aboutBio: [

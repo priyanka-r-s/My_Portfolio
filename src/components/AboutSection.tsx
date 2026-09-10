@@ -77,7 +77,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
               <img
                 src={data.aboutPortrait || data.heroPortrait}
                 alt={data.creatorName}
-                className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
             </div>

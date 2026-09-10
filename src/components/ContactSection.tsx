@@ -59,7 +59,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <img
                 src={data.contactPortrait || data.aboutPortrait || data.heroPortrait}
                 alt={data.creatorName}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
             </div>
