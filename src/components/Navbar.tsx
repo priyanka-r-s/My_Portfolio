@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sliders, FileDown } from 'lucide-react';
+import { Menu, X, ArrowUpRight, FileDown } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
 
 interface NavbarProps {
   data: PortfolioData;
-  onOpenCustomizer?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
+export const Navbar: React.FC<NavbarProps> = ({ data }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -92,17 +91,6 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
               </svg>
             </a>
 
-            {onOpenCustomizer && (
-              <button
-                onClick={onOpenCustomizer}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-full bg-[#F3F4F6] hover:bg-[#F4B41A] hover:text-[#141517] text-gray-800 transition-all border border-gray-300"
-                title="Edit portfolio details live"
-              >
-                <Sliders className="w-3.5 h-3.5 text-[#F4B41A]" />
-                <span className="hidden lg:inline">Edit Info</span>
-              </button>
-            )}
-
             {data.resumeUrl && (
               <a
                 href={data.resumeUrl}
@@ -128,15 +116,6 @@ export const Navbar: React.FC<NavbarProps> = ({ data, onOpenCustomizer }) => {
 
           {/* Mobile Menu Toggle Button */}
           <div className="flex sm:hidden items-center gap-2">
-            {onOpenCustomizer && (
-              <button
-                onClick={onOpenCustomizer}
-                className="p-2 rounded-full bg-[#F3F4F6] text-gray-800"
-                aria-label="Customize"
-              >
-                <Sliders className="w-4 h-4 text-[#F4B41A]" />
-              </button>
-            )}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-full bg-white border border-gray-300 text-[#141517] focus:outline-none shadow-sm"

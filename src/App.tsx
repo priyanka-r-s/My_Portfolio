@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { initialPortfolioData } from './data/portfolioData';
-import { PortfolioData, SkillCategory } from './types/portfolio';
+import { SkillCategory } from './types/portfolio';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
@@ -11,34 +11,21 @@ import { ExperienceEducationSection } from './components/ExperienceEducationSect
 import { ProcessFaqSection } from './components/ProcessFaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { CustomizerDrawer } from './components/CustomizerDrawer';
 
 export function App() {
-  const [data, setData] = useState<PortfolioData>(() => {
-    const saved = localStorage.getItem('portfolio_priyanka_data_v3');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        parsed.heroPortrait = initialPortfolioData.heroPortrait;
-        parsed.aboutPortrait = initialPortfolioData.aboutPortrait;
-        parsed.contactPortrait = initialPortfolioData.contactPortrait;
-        parsed.projects = initialPortfolioData.projects;
-        parsed.resumeUrl = initialPortfolioData.resumeUrl;
-        return parsed;
-      } catch {
-        return initialPortfolioData;
-      }
-    }
-    return initialPortfolioData;
-  });
-
-  const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
+  const data = initialPortfolioData;
   const [selectedTopicForContact, setSelectedTopicForContact] = useState<string>('');
 
-  const handleUpdateData = (newData: PortfolioData) => {
-    setData(newData);
-    localStorage.setItem('portfolio_priyanka_data_v3', JSON.stringify(newData));
-  };
+  useEffect(() => {
+    // Clean up any stale client localStorage from previous customizer testing
+    try {
+      localStorage.removeItem('portfolio_priyanka_data_v3');
+      localStorage.removeItem('portfolio_priyanka_data_v2');
+      localStorage.removeItem('portfolio_priyanka_data');
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const handleSelectSkill = (skillCategory: SkillCategory) => {
     setSelectedTopicForContact(skillCategory.title);
@@ -46,10 +33,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F3F4F6] text-[#141517] font-sans selection:bg-[#F4B41A] selection:text-[#141517]">
-      <Navbar
-        data={data}
-        onOpenCustomizer={() => setIsCustomizerOpen(true)}
-      />
+      <Navbar data={data} />
 
       <main className="flex-grow">
         <HeroSection data={data} />
@@ -69,13 +53,6 @@ export function App() {
       </main>
 
       <Footer data={data} />
-
-      <CustomizerDrawer
-        isOpen={isCustomizerOpen}
-        onClose={() => setIsCustomizerOpen(false)}
-        data={data}
-        onUpdateData={handleUpdateData}
-      />
     </div>
   );
 }

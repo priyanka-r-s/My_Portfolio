@@ -151,9 +151,9 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
             {data.education.map((edu, idx) => (
               <div
                 key={idx}
-                className="p-4 sm:p-5 rounded-[24px] bg-white border border-gray-200/90 shadow-sm flex flex-col sm:flex-row sm:items-start justify-between gap-3"
+                className="p-4 sm:p-5 rounded-[24px] bg-white border border-gray-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3"
               >
-                <div>
+                <div className="flex-1">
                   <span className="text-[9px] font-mono uppercase tracking-wider text-[#F4B41A] font-bold">
                     {edu.period}
                   </span>
@@ -173,11 +173,11 @@ export const ExperienceEducationSection: React.FC<ExperienceEducationSectionProp
                   )}
                 </div>
 
-                <div className="flex-shrink-0 self-start sm:self-auto bg-[#141517] text-white px-4 py-2 rounded-2xl text-center shadow-sm border border-gray-800">
-                  <span className="font-display font-black text-lg text-[#F4B41A] block leading-none">
+                <div className="flex-shrink-0 self-start sm:self-center px-3.5 py-1.5 rounded-xl bg-amber-50/90 border border-amber-200/90 text-left sm:text-right">
+                  <span className="font-display font-black text-sm text-[#141517] block leading-tight">
                     {edu.score}
                   </span>
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-gray-300 font-bold">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#B45309] block mt-0.5">
                     {edu.scoreLabel}
                   </span>
                 </div>
