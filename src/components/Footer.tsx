@@ -1,13 +1,15 @@
 import React from 'react';
-import { Mail, Phone, MapPin, FileDown } from 'lucide-react';
+import { Mail, Phone, MapPin, FileDown, Users } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
+import { useVisitorCount } from '../hooks/useVisitorCount';
 
 interface FooterProps {
   data: PortfolioData;
 }
 
 export const Footer: React.FC<FooterProps> = ({ data }) => {
+  const { count } = useVisitorCount();
   return (
     <footer className="bg-[#141517] text-white pt-16 pb-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -177,9 +179,24 @@ export const Footer: React.FC<FooterProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & Live Stats */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} {data.creatorName}. All rights reserved.</p>
+
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1F26] border border-gray-800 text-[11px] font-mono text-gray-300 shadow-inner"
+            title="Total Unique Visits"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <Users className="w-3.5 h-3.5 text-[#F4B41A]" />
+            <span>
+              Visitors: <strong className="text-white font-mono font-bold">{count.toLocaleString()}</strong>
+            </span>
+          </div>
+
           <p className="text-[11px] font-mono tracking-wide text-gray-400">
             Data Analyst | Data Science • Pune, India
           </p>

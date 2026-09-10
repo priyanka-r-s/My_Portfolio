@@ -9,15 +9,19 @@ import {
   ArrowDown,
   ArrowUpRight,
   FileDown,
+  Eye,
 } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import { PortfolioData } from '../types/portfolio';
+import { useVisitorCount } from '../hooks/useVisitorCount';
 
 interface HeroSectionProps {
   data: PortfolioData;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
+  const { count } = useVisitorCount();
+
   // Navigation nodes mapped mathematically along the 225px radius golden arc (viewBox 0 0 540 540)
   // Arc center: (235, 270), R = 225, with θ from -62.5° to +62.5° in 25° increments
   const orbitalNodes = [
@@ -56,6 +60,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
               <div className="px-3.5 py-1.5 rounded-full bg-[#141517] text-white font-bold text-[10px] sm:text-xs tracking-wider uppercase shadow-xs flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F4B41A] animate-pulse" />
                 <span>Open for Opportunities</span>
+              </div>
+
+              <div
+                className="px-3.5 py-1.5 rounded-full bg-[#F3F4F6] text-gray-700 border border-gray-200/90 font-mono text-[10px] sm:text-xs flex items-center gap-1.5 shadow-2xs"
+                title="Live Portfolio Visitors"
+              >
+                <Eye className="w-3.5 h-3.5 text-[#F4B41A]" />
+                <span>
+                  <strong className="text-[#141517] font-bold">{count.toLocaleString()}</strong> visits
+                </span>
               </div>
             </div>
 
