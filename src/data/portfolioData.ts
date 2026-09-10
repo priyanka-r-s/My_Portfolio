@@ -430,7 +430,7 @@ export const initialPortfolioData: PortfolioData = {
   location: 'Pune, Maharashtra, India',
   socials: {
     github: 'https://github.com/priyanka-r-s',
-    linkedin: 'https://www.linkedin.com/in/priyanka-rani-sahu',
+    linkedin: 'https://www.linkedin.com/in/priyanka-rani-sahu-3768b4303',
     email: 'sahuranipriyanka56@gmail.com',
   },
   resumeUrl: '/Priyanka_Resume.pdf',
