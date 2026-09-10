@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const BASE_OFFSET = 124; // Baseline visitors for established portfolio look
+// Starting baseline to preserve existing visitor count seamlessly
+const BASE_OFFSET = 124;
+const API_BASE = 'https://abacus.jasoncameron.dev';
+const COUNTER_NAMESPACE = 'priyanka-sahu-portfolio';
+const COUNTER_KEY = 'views';
 
 export function useVisitorCount() {
   const [count, setCount] = useState<number>(() => {
@@ -16,49 +20,49 @@ export function useVisitorCount() {
   useEffect(() => {
     let isMounted = true;
 
-    async function fetchVisitorCount() {
+    async function recordAndFetchVisit() {
       try {
-        const sessionCount = sessionStorage.getItem('portfolio_session_count');
-        const sessionVisited = sessionStorage.getItem('portfolio_session_visited');
+        // Check if this visitor has already been counted in this browser session
+        const hasCountedSession = sessionStorage.getItem('portfolio_session_counted');
 
-        if (sessionVisited && sessionCount) {
-          const parsed = parseInt(sessionCount, 10);
-          if (!isNaN(parsed) && isMounted) {
-            setCount(parsed);
-            setIsLoading(false);
-            return;
-          }
-        }
+        // If it's a new visitor session, increment the global counter; otherwise fetch latest total
+        const endpoint = hasCountedSession
+          ? `${API_BASE}/get/${COUNTER_NAMESPACE}/${COUNTER_KEY}`
+          : `${API_BASE}/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`;
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4000);
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-        const res = await fetch('https://hits.dwyl.com/priyanka-r-s/My_Portfolio.json', {
+        const res = await fetch(endpoint, {
           signal: controller.signal,
+          headers: {
+            Accept: 'application/json',
+          },
         });
         clearTimeout(timeoutId);
 
         if (res.ok) {
           const data = await res.json();
-          const rawCount = parseInt(data.message, 10);
-          if (!isNaN(rawCount)) {
-            const finalCount = BASE_OFFSET + rawCount;
+          const serverValue =
+            typeof data.value === 'number' ? data.value : parseInt(data.value, 10);
+
+          if (!isNaN(serverValue)) {
+            const finalCount = BASE_OFFSET + serverValue;
             if (isMounted) {
               setCount(finalCount);
               setIsLoading(false);
             }
             try {
-              sessionStorage.setItem('portfolio_session_visited', 'true');
-              sessionStorage.setItem('portfolio_session_count', String(finalCount));
+              sessionStorage.setItem('portfolio_session_counted', 'true');
               localStorage.setItem('portfolio_visitor_count', String(finalCount));
             } catch {
-              // ignore storage quotas
+              // Ignore storage errors
             }
             return;
           }
         }
-      } catch {
-        // Graceful fallback to existing cached count or default baseline
+      } catch (error) {
+        // Graceful fallback to existing cached count
       }
 
       if (isMounted) {
@@ -66,7 +70,7 @@ export function useVisitorCount() {
       }
     }
 
-    fetchVisitorCount();
+    recordAndFetchVisit();
 
     return () => {
       isMounted = false;
